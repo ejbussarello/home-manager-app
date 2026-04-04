@@ -1,8 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth"; // NOVO: Importando a Autenticação
+import { getStorage } from "firebase/storage";
 
-// MANTENHA AS SUAS CHAVES AQUI
+// CHAVES
 const firebaseConfig = {
   apiKey: "AIzaSyAK7QORS6WBglMpKcBE30JsdWskUuVOhYQ",
   authDomain: "home-manager-app-4fd40.firebaseapp.com",
@@ -14,9 +15,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const storage = getStorage(app);
 
-export const db = getFirestore(app);
-export const auth = getAuth(app); // NOVO: Exportando a Autenticação
+export { db, auth, storage };
 
 // service_jq21odj 
 // template_xyz987
