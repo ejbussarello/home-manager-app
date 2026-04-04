@@ -33,7 +33,10 @@ const extrairNome = (email) => {
 const loginComGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try { await signInWithPopup(auth, provider); } 
-  catch (error) { alert("Falha ao fazer login com o Google."); }
+  catch (error) { 
+    console.error("Erro no login: ", error);
+    alert("Falha ao fazer login com o Google."); 
+  }
 }
 
 const fazerLogout = async () => {
