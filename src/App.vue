@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, computed, watch } from 'vue'
 import { collection, addDoc, onSnapshot, query, orderBy, deleteDoc, doc, updateDoc, getDocs, where } from 'firebase/firestore'
-import { signInWithRedirect, GoogleAuthProvider, signOut, onAuthStateChanged } from 'firebase/auth'
+import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'firebase/auth'
 import { db, auth } from './firebase' 
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
@@ -32,7 +32,7 @@ const extrairNome = (email) => {
 
 const loginComGoogle = async () => {
   const provider = new GoogleAuthProvider();
-  try { await signInWithRedirect(auth, provider); } 
+  try { await signInWithPopup(auth, provider); } 
   catch (error) { alert("Falha ao fazer login com o Google."); }
 }
 
